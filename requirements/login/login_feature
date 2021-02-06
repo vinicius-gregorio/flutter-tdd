@@ -1,0 +1,15 @@
+Feature: Login 
+
+Como um cliente quero poder acessar minha conta e me manter logado
+Para que eu possa ver e responder enquetes de forma rapida.
+
+Cenario: Credenciais Validas
+Dado que o cliente informou credenciais validas,
+Quando solicitar para fazer login,
+Entao o sistema deve enviar o usuario para a tela de pesquisas,
+E manter o usuario conectado.
+
+Cenario: Credenciais Invalidas
+Dado que o cliente informou credenciais invalidas,
+Quando solicitar para fazer o login,
+Entao o sistema deve enviar uma mensagem de erro.
