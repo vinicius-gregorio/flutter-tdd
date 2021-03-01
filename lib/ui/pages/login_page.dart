@@ -42,7 +42,9 @@ class LoginPage extends StatelessWidget {
                   ),
                   Padding(padding: EdgeInsets.symmetric(vertical: 24)),
                   TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        print('account');
+                      },
                       child: Text('Criar Conta'.toUpperCase())),
                   TextButton(
                       onPressed: () {}, child: Text('Entrar'.toUpperCase())),
