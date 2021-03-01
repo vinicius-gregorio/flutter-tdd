@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../components/components.dart';
+
 class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -9,29 +11,7 @@ class LoginPage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Container(
-              height: height * 0.35,
-              margin: EdgeInsets.only(bottom: 30),
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                    begin: Alignment.topRight,
-                    end: Alignment.bottomLeft,
-                    colors: [
-                      Theme.of(context).primaryColorLight,
-                      Theme.of(context).primaryColorDark
-                    ]),
-                boxShadow: [
-                  BoxShadow(
-                      offset: Offset(0, 0),
-                      spreadRadius: 0,
-                      blurRadius: 4,
-                      color: Colors.black),
-                ],
-                borderRadius:
-                    BorderRadius.only(bottomLeft: Radius.circular(80)),
-              ),
-              child: Image(image: AssetImage('lib/ui/assets/logo/logo.png')),
-            ),
+            LoginHeader(height: height),
             Text('Login'.toUpperCase(),
                 textAlign: TextAlign.center,
                 style: Theme.of(context).textTheme.headline1),
