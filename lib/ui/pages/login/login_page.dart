@@ -42,17 +42,22 @@ class LoginPage extends StatelessWidget {
                           keyboardType: TextInputType.emailAddress,
                         );
                       }),
-                  TextFormField(
-                    onChanged: presenter.validatePassword,
-                    decoration: InputDecoration(
-                      labelText: 'Senha',
-                      icon: Icon(
-                        Icons.lock,
-                        color: Theme.of(context).primaryColorLight,
-                      ),
-                    ),
-                    obscureText: true,
-                  ),
+                  StreamBuilder<String>(
+                      stream: presenter.passwordErrorStream,
+                      builder: (context, snapshot) {
+                        return TextFormField(
+                          onChanged: presenter.validatePassword,
+                          decoration: InputDecoration(
+                            errorText: snapshot.data,
+                            labelText: 'Senha',
+                            icon: Icon(
+                              Icons.lock,
+                              color: Theme.of(context).primaryColorLight,
+                            ),
+                          ),
+                          obscureText: true,
+                        );
+                      }),
                   Padding(padding: EdgeInsets.symmetric(vertical: 24)),
                   TextButton(
                       onPressed: null,
