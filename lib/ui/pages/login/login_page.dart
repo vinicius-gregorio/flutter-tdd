@@ -48,7 +48,9 @@ class LoginPage extends StatelessWidget {
                         return TextFormField(
                           onChanged: presenter.validatePassword,
                           decoration: InputDecoration(
-                            errorText: snapshot.data,
+                            errorText: snapshot.data?.isEmpty == true
+                                ? null
+                                : snapshot.data,
                             labelText: 'Senha',
                             icon: Icon(
                               Icons.lock,
@@ -59,9 +61,13 @@ class LoginPage extends StatelessWidget {
                         );
                       }),
                   Padding(padding: EdgeInsets.symmetric(vertical: 24)),
-                  TextButton(
-                      onPressed: null,
-                      child: Text('Criar Conta'.toUpperCase())),
+                  StreamBuilder<bool>(
+                      stream: presenter.isFormValidStream,
+                      builder: (context, snapshot) {
+                        return TextButton(
+                            onPressed: snapshot.data == true ? () {} : null,
+                            child: Text('Criar Conta'.toUpperCase()));
+                      }),
                   // TextButton(
                   //     onPressed: null, child: Text('Entrar'.toUpperCase())),
                 ],
