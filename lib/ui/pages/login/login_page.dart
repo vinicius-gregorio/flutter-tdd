@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 
-import '../components/components.dart';
+import '../../components/components.dart';
+import '../pages.dart';
 
 class LoginPage extends StatelessWidget {
+  final LoginPresenter presenter;
+  LoginPage(this.presenter);
+
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
@@ -21,6 +25,7 @@ class LoginPage extends StatelessWidget {
                   child: Column(
                 children: [
                   TextFormField(
+                    onChanged: presenter.validateEmail,
                     decoration: InputDecoration(
                       labelText: 'Email',
                       icon: Icon(
@@ -31,6 +36,7 @@ class LoginPage extends StatelessWidget {
                     keyboardType: TextInputType.emailAddress,
                   ),
                   TextFormField(
+                    onChanged: presenter.validatePassword,
                     decoration: InputDecoration(
                       labelText: 'Senha',
                       icon: Icon(

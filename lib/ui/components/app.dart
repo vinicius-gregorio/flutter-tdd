@@ -68,7 +68,7 @@ class App extends StatelessWidget {
                   borderSide: BorderSide(color: primaryColor)))),
       title: '4Dev',
       debugShowCheckedModeBanner: false,
-      home: LoginPage(),
+      home: LoginPage(null),
     );
   }
 }
