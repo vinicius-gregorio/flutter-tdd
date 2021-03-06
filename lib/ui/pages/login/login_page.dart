@@ -57,17 +57,10 @@ class _LoginPageState extends State<LoginPage> {
                       EmailInput(),
                       PasswordInput(),
                       Padding(padding: EdgeInsets.symmetric(vertical: 24)),
-                      StreamBuilder<bool>(
-                          stream: widget.presenter.isFormValidStream,
-                          builder: (context, snapshot) {
-                            return TextButton(
-                                onPressed: snapshot.data == true
-                                    ? widget.presenter.auth
-                                    : null,
-                                child: Text('Criar Conta'.toUpperCase()));
-                          }),
+                      LoginButton(),
                       ElevatedButton(
-                          onPressed: null, child: Text('Entrar'.toUpperCase())),
+                          onPressed: null,
+                          child: Text('Criar Conta'.toUpperCase())),
                     ],
                   )),
                 ),
