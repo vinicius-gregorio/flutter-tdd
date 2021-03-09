@@ -36,8 +36,10 @@ void main() {
             field: anyNamed('field'), value: anyNamed('value')))
         .thenReturn('error');
 
-    expectLater(sut.emailErrorStream, emits('error'));
+    sut.emailErrorStream
+        .listen(expectAsync1((error) => expect(error, 'error')));
 
+    sut.validateEmail(email);
     sut.validateEmail(email);
   });
 }
